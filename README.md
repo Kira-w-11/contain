@@ -36,10 +36,23 @@ X = sustainability spending (in $1000s)
 
 curl "http://localhost:5000/predict?W=1&X=20"
 
-
 Output：
 {
   "W": 1.0,
   "X": 20.0,
   "Predicted Engagement Score": 117.16
 }
+
+
+Question 1 b)
+Based on the OLS regression results, the estimated Average Treatment Effect (ATE) of participating in the carbon offset program is:
+τ̂ = 4.79
+The p-value for τ̂ is 0.027, which indicates that the estimated ATE is statistically significant at the 5% level.
+This suggests that, after controlling for sustainability spending, corporations that participated in the carbon offset program have, on average, an engagement score 4.79 points higher than those that did not participate.
+
+Question 1 c)
+The estimated ATE (τ̂) can be interpreted as a causal effect under the following assumptions of the Rubin Causal Model:
+Unconfoundedness (Ignorability): There are no unobserved confounders that affect both the treatment assignment (W) and the outcome (Y_obs). In other words, after controlling for sustainability spending (X), the treatment assignment is as good as random.
+Linearity of the Model: The relationship between the outcome, treatment, and covariate is correctly specified as linear.
+Stable Unit Treatment Value Assumption (SUTVA): There is no interference between units (one corporation's treatment status does not affect another's outcome), and only one version of the treatment exists.
+Under these assumptions, τ̂ provides an unbiased estimate of the causal effect of the carbon offset program on stakeholder engagement.
